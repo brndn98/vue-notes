@@ -326,10 +326,10 @@ export default {
 ::-webkit-scrollbar {
   width: 1%;
 }
-::-webkit-scrollbar-track {
+/*::-webkit-scrollbar-track {
   background-color: #202f3f;
   border-radius: 25px;
-}
+}*/
 ::-webkit-scrollbar-thumb {
   background-color: #41b883;
   border-radius: 25px;
