@@ -131,8 +131,6 @@ export default {
           };
           this.addNote(newNote);
         }
-        //this.title = "";
-        //this.editor.setContent("<p>Write something here...</p>");
       } else {
         alert("Write a title for the note!");
       }
@@ -169,7 +167,7 @@ export default {
 .editor {
   position: absolute;
   width: 50%;
-  height: 60%;
+  height: 75%;
   padding: 0 1%;
   display: flex;
   flex-flow: column nowrap;
@@ -185,7 +183,7 @@ export default {
 
 .editor-header {
   width: 100%;
-  height: 10%;
+  height: 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -226,7 +224,7 @@ export default {
 
 .menu-bar {
   width: 95%;
-  height: 10%;
+  height: 8%;
   padding: 0 2.5%;
   display: flex;
   align-items: center;
@@ -262,7 +260,7 @@ export default {
 
 .editor-content {
   width: 90%;
-  height: 50%;
+  height: 62%;
   padding: 2% 5%;
   /*display: flex;
   flex-flow: column nowrap;*/
@@ -307,7 +305,7 @@ export default {
 
 .editor-save {
   width: 100%;
-  height: 10%;
+  height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
