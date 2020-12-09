@@ -1,20 +1,27 @@
 <template>
   <div class="note-list">
-    <h1 class="container-heading">{{listHeading}}</h1>
+    <h1 class="container-heading">{{heading}}</h1>
     <div class="container-notes">
-      <NoteItem v-for="note in notesList" :note="note" :key="note.id" />
+      <NoteItem v-for="note in list" :note="note" :key="note.id" />
     </div>
+    <NoteWarning v-if="removing" />
   </div>
 </template>
 
 <script>
 import NoteItem from "./NoteItem.vue";
+import NoteWarning from "./NoteWarning.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "NoteList",
-  props: ["listHeading", "notesList"],
+  props: ["heading", "list"],
   components: {
-    NoteItem
+    NoteItem,
+    NoteWarning
+  },
+  computed: {
+    ...mapState(["removing"])
   }
 };
 </script>
@@ -25,6 +32,7 @@ export default {
   height: 85%;
   /*background-color: #4a5e72;*/
   display: flex;
+  position: relative;
   flex-flow: column nowrap;
   align-items: center;
   overflow-y: auto;

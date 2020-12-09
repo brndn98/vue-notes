@@ -15,13 +15,23 @@
         <i class="fas fa-archive"></i>
       </button>
     </div>
-    <router-view />
+    <NoteList v-if="$route.params.list === 'all'" :heading="'Active Notes'" :list="activeNotes" />
+    <NoteList
+      v-else-if="$route.params.list === 'favorite'"
+      :heading="'Favorite Notes'"
+      :list="favoriteNotes"
+    />
+    <NoteList
+      v-else-if="$route.params.list === 'removed'"
+      :heading="'Removed Notes'"
+      :list="inactiveNotes"
+    />
   </div>
 </template>
 
 <script>
-import NoteEditor from "./NoteEditor.vue";
-import NoteList from "./NoteList.vue";
+import NoteEditor from "@/components/NoteEditor.vue";
+import NoteList from "@/components/NoteList.vue";
 import { mapState, mapGetters, mapMutations } from "vuex";
 
 export default {

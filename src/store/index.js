@@ -10,6 +10,8 @@ export default new Vuex.Store({
     currentNote: null,
     tags: [{ id: 0, name: "note" }],
     writing: false,
+    removing: false,
+    noteToRemove: null,
     currentList: "all"
   },
   getters: {
@@ -50,6 +52,8 @@ export default new Vuex.Store({
     },
     removeNote(state, id) {
       state.notes = state.notes.filter(note => note.id !== id);
+      state.noteToRemove = null;
+      state.removing = false;
     },
     createNote(state) {
       if (!state.writing) state.writing = true;
@@ -86,6 +90,12 @@ export default new Vuex.Store({
     },
     handleWriting(state) {
       state.writing = !state.writing;
+    },
+    handleRemoving(state) {
+      state.removing = !state.removing;
+    },
+    setNoteToRemove(state, noteId) {
+      state.noteToRemove = noteId;
     },
     setCurrentList(state, typeOfList) {
       state.currentList = typeOfList;

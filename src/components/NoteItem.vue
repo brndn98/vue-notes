@@ -25,7 +25,7 @@
           <i class="fas fa-trash-restore"></i>
         </button>
       </div>
-      <button class="note-remove" @click="removeNote(note.id)">erase note</button>
+      <button class="note-remove" @click="triggerNoteToRemove(note.id)">remove note</button>
     </div>
   </div>
 </template>
@@ -37,11 +37,16 @@ export default {
   name: "NoteItem",
   props: ["note"],
   methods: {
+    triggerNoteToRemove(id) {
+      this.setNoteToRemove(id);
+      this.handleRemoving();
+    },
     ...mapMutations([
       "toggleActiveNote",
       "toggleFavoriteNote",
       "editNote",
-      "removeNote"
+      "handleRemoving",
+      "setNoteToRemove"
     ])
   }
 };

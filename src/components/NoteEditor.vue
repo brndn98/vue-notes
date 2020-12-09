@@ -166,6 +166,7 @@ export default {
 <style>
 .editor {
   position: absolute;
+  z-index: 100;
   width: 50%;
   height: 75%;
   padding: 0 1%;

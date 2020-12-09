@@ -1,13 +1,19 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
-    <router-link to="/notes">Notes</router-link>
+    <router-link to="/home">Home</router-link>
+    <!--<router-link to="/notes/testing_param">Notes</router-link>-->
+    <router-link to="/notes/all">Notes</router-link>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  computed: {
+    ...mapGetters(["activeNotes"])
+  }
 };
 </script>
 

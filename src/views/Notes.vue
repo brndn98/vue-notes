@@ -1,7 +1,7 @@
 <template>
   <div class="notes-container">
     <SideBar />
-    <ListContainer />
+    <router-view />
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import SideBar from "@/components/SideBar.vue";
 import ListContainer from "@/components/ListContainer.vue";
 //import NoteEditor from "@/components/NoteEditor.vue";
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "Notes",
@@ -17,11 +17,18 @@ export default {
     SideBar,
     ListContainer
   },
+  computed: {
+    ...mapGetters(["activeNotes"])
+  },
   methods: {
     ...mapMutations(["getNotes"])
   },
   mounted() {
     this.getNotes();
+    this.$router.push({
+      name: "List",
+      params: { list: "all" }
+    });
   }
 };
 </script>

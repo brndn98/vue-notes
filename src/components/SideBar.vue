@@ -1,18 +1,18 @@
 <template>
   <div class="notes-sidebar">
-    <div class="sidebar-actions-placeholder">
-      <button class="sidebar-all" @click="setCurrentList('all')">
+    <div class="sidebar-actions">
+      <router-link class="sidebar-all" to="/notes/all">
         all notes
-        <i class="fas fa-list-ul"></i>
-      </button>
-      <button class="sidebar-favorites" @click="setCurrentList('favorite')">
+        <i class="fas fa-list-ul" />
+      </router-link>
+      <router-link class="sidebar-favorites" to="/notes/favorite">
         favorite notes
-        <i class="fas fa-star"></i>
-      </button>
-      <button class="sidebar-removed" @click="setCurrentList('inactive')">
+        <i class="fas fa-star" />
+      </router-link>
+      <router-link class="sidebar-removed" to="/notes/removed">
         removed notes
-        <i class="fas fa-trash"></i>
-      </button>
+        <i class="fas fa-trash" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -36,12 +36,12 @@ export default {
   justify-content: center;
   background-color: #34495e;
 }
-.sidebar-actions-placeholder {
+.sidebar-actions {
   width: 80%;
   margin-top: 10%;
 }
-.sidebar-actions-placeholder > button {
-  width: 100%;
+.sidebar-actions > a {
+  width: 70%;
   height: 8%;
   padding: 0 15%;
   margin-bottom: 5%;
@@ -51,14 +51,20 @@ export default {
   font-weight: 700;
   font-size: 1em;
   background-color: #41b883;
+  border: 1px solid #41b883;
   color: #2c3e50;
-  border: none;
+  text-decoration: none;
   border-radius: 25px;
   transition: 0.2s;
 }
-.sidebar-actions-placeholder > button:focus,
-.sidebar-actions-placeholder > button:hover {
+/*.sidebar-actions > a:focus,*/
+.sidebar-actions > a:hover {
   color: #ededed;
   border-radius: 10px;
+}
+.sidebar-actions > a.router-link-exact-active {
+  background-color: #2c3e50;
+  border-radius: 10px;
+  color: #41b883;
 }
 </style>
