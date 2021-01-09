@@ -36,7 +36,7 @@ nav a.router-link-exact-active {
   color: #1c1c1c;
 }
 nav h1 {
-  padding-left: 200px;
+  padding-left: 100px;
   font-weight: 700;
   color: #34495e;
 }
