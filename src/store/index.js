@@ -16,7 +16,7 @@ export default new Vuex.Store({
   },
   getters: {
     favoriteNotes: state => {
-      return state.notes.filter(note => note.isFavorite);
+      return state.notes.filter(note => note.isFavorite && note.isActive);
     },
     activeNotes: state => {
       return state.notes.filter(note => note.isActive);
