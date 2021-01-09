@@ -10,7 +10,7 @@
         <i class="fas fa-star" />
       </router-link>
       <router-link class="sidebar-removed" to="/notes/removed">
-        removed notes
+        erased notes
         <i class="fas fa-trash" />
       </router-link>
     </div>

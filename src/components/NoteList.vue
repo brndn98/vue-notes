@@ -1,8 +1,11 @@
 <template>
   <div class="note-list">
     <h1 class="container-heading">{{heading}}</h1>
-    <div class="container-notes">
+    <div class="container-notes" v-if="list.length > 0">
       <NoteItem v-for="note in list" :note="note" :key="note.id" />
+    </div>
+    <div class="notes-empty" v-else>
+      <h1>{{noNotesText}}</h1>
     </div>
     <NoteWarning v-if="removing" />
   </div>
@@ -15,7 +18,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "NoteList",
-  props: ["heading", "list"],
+  props: ["heading", "list", "noNotesText"],
   components: {
     NoteItem,
     NoteWarning
@@ -49,5 +52,23 @@ export default {
   /*height: 95%;*/
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.notes-empty {
+  width: 60%;
+  height: 20%;
+  margin-top: 20vh;
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #34495e;
+  box-shadow: 0px 5px 10px #1c1c1c;
+}
+.notes-empty > h1 {
+  font-size: 2em;
+  color: #41b883;
 }
 </style>

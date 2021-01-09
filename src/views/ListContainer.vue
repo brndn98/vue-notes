@@ -15,16 +15,23 @@
         <i class="fas fa-archive"></i>
       </button>
     </div>
-    <NoteList v-if="$route.params.list === 'all'" :heading="'Active Notes'" :list="activeNotes" />
+    <NoteList 
+      v-if="$route.params.list === 'all'"
+      :heading="'Active Notes'"
+      :list="activeNotes"
+      :noNotesText="'Start adding some notes! :)'"
+    />
     <NoteList
       v-else-if="$route.params.list === 'favorite'"
       :heading="'Favorite Notes'"
       :list="favoriteNotes"
+      :noNotesText="'No favorite notes yet'"
     />
     <NoteList
       v-else-if="$route.params.list === 'removed'"
-      :heading="'Removed Notes'"
+      :heading="'Erased Notes'"
       :list="inactiveNotes"
+      :noNotesText="'Your erased notes list is empty'"
     />
   </div>
 </template>
